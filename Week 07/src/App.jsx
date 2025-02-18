@@ -1,28 +1,38 @@
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import Header from "./components/Header";
-import Home from "./components/Home";
+import { useState } from "react"
 
 function App() {
+  const [count, setCount] = useState(0);
+  
   return (
-    <BrowserRouter>
-      <Topbar />
-      <Routes>
-        <Route path="/header" element={<Header />} />
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  );
-
-  function Topbar() {
-    const navigate = useNavigate();
-
-    return (
-      <div>
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/header")}>Header</button>
-      </div>
-    );
-  }
+    <div>
+      <Count count={count} setCount={setCount} />
+    </div>
+  )
 }
 
-export default App;
+function Count({count, setCount}) {
+  return <div>
+    <CountRenderer count={count} />
+    <Buttons count={count} setCount={setCount} />
+  </div>
+}
+
+function CountRenderer({count}) {
+  return <div>
+    {count}
+  </div>
+}
+
+function Buttons({count, setCount}) {
+  return <div>
+    <button onClick={() => {
+      setCount(count + 1)
+    }}>Increase</button>
+
+    <button onClick={() => {
+      setCount(count - 1)
+    }}>Decrease</button>
+  </div>
+}
+
+export default App
