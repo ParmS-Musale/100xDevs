@@ -25,7 +25,7 @@ const Assignment1 = () => {
           setInput(e.target.value);
         }}
       />
-      <p>Calculated Value : {CalculatedValue}</p>
+      <p>Calculated Values : {CalculatedValue}</p>
     </div>
   );
 };
