@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-      <h1>CountGo</h1>
+      <h1>CountGoES</h1>
       <button onClick={() => setCount(count + 1)}>Increment {count}</button>
     </div>
   );
